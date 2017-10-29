@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>flex布局示例</title>
+        <link rel="stylesheet" type="text/css" href="./flex.css">
+    </head>
+    <body>
+        <header><h1>flex布局</h1></header>
+        <section>
+            <p>
+                <article>首先借用阮老师的一张图，说明flex布局中主轴，交叉轴以及起点终点位置关系，方便在做布局的时候对CSS属性的选择</article>
+                <img src="./timg.jpg">
+            </p>
+        </section>
+        <section>
+            <h2>骰子布局</h2>
+            <ul>
+                <li>
+                    <h3>1点</h3>
+                    <span>顶部左侧—— 默认的主轴和交叉轴起始位置</span>
+                    <ul class="flex-box box1">
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>顶部中部—— 主轴中部，交叉轴起始位置</span>
+                    <ul class="flex-box box2">
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>顶部右侧—— 主轴结束位置，交叉轴起始位置</span>
+                    <ul class="flex-box box3">
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>中部左侧—— 主轴起始位置，交叉轴中部位置</span>
+                    <ul class="flex-box box4">
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>剩余的位置可以用组合的形式来实现，例如：<br/>底部中部——主轴中部位置，交叉轴结束位置</span>
+                    <ul class="flex-box box5">
+                        <li class="flex-box-li"></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>2点</h3>
+                    <span>主轴左右两侧</span>
+                    <ul class="flex-box box6">
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>元素均分</span>
+                    <ul class="flex-box box7">
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>中间间距是边距两倍</span>
+                    <ul class="flex-box box8">
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>元素列分布</span>
+                    <ul class="flex-box box9">
+                        <li class="flex-box-li box-li-1"></li>
+                        <li class="flex-box-li box-li-2"></li>
+                    </ul>
+                    <span>元素反向列分布</span>
+                    <ul class="flex-box box10">
+                        <li class="flex-box-li box-li-1"></li>
+                        <li class="flex-box-li box-li-2"></li>
+                    </ul>
+                    <span>元素多态分布</span>
+                    <ul class="flex-box box6">
+                        <li class="flex-box-li box-li-1"></li>
+                        <li class="flex-box-li box-li-3"></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>3点</h3>
+                    <span>斜向排列——主轴三点均分后，第二点，第三点分别设定交叉轴位置</span>
+                    <ul class="flex-box box6">
+                        <li class="flex-box-li box-li-1"></li>
+                        <li class="flex-box-li box-li-4"></li>
+                        <li class="flex-box-li box-li-3"></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>4点</h3>
+                    <span>4点换行—— 元素水平和垂直的分布可以通过justify和align设置，下图设定了align-content：space-between</span>
+                    <ul class="flex-box box11">
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                        <li class="flex-box-li"></li>
+                    </ul>
+                    <span>4点均分——flex嵌套组合，外层控制2行之间的位置，内层控制两点之间的位置</span>
+                    <ul class="flex-box box12">
+                        <div>
+                            <li class="flex-box-li"></li>
+                            <li class="flex-box-li"></li>
+                        </div>
+                        <div>
+                            <li class="flex-box-li"></li>
+                            <li class="flex-box-li"></li>
+                        </div>
+                    </ul>
+                </li>
+                 <li>
+                    <h3>5点</h3>
+                    <span>5点到9点其实就是上述过程中的组合或单纯数量的递增（如9点），不再赘述</span>
+                    <ul class="flex-box box12">
+                        <div>
+                            <li class="flex-box-li"></li>
+                            <li class="flex-box-li"></li>
+                        </div>
+                        <div style="justify-content: center;">
+                            <li class="flex-box-li box-li-2"></li>
+                        </div>
+                        <div>
+                            <li class="flex-box-li"></li>
+                            <li class="flex-box-li"></li>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>圣杯布局</h2>
+            <p>
+                <span>接着借用阮老师的一张图，典型的主页布局方式，以前基本上通过margin等形式实现</span><br />
+                <img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071323.png"><br />
+                <span>下面是手写一遍后的内容，因为是注入到页面这部分中的，所有标签使用上没有header等</span>
+            </p>
+            <div class="holyGrail">
+                <div class="header">#header</div>
+                <div class="main">
+                    <div class="left">#left</div>
+                    <div class="center">#center</div>
+                    <div class="right">#right</div>
+                </div>
+                <div class="footer">#footer</div>
+            </div>
+        </section>
+        <section>
+            <h2>悬浮布局</h2>
+            <p>这是最常用的一种布局形式，非常美观间接，非flex布局一般是margin占位，很容易错乱，尺寸调整繁琐</p>
+            <div class="flow">
+                <img src="./unit.png">
+                <p>
+                    <span><b>悬浮布局</b></span>
+                    <span>这是最常用的一种布局形式，非常美观间接，非flex布局一般是margin占位，很容易错乱，尺寸调整繁琐</span>
+                </p>
+            </div>
+        </section>
+    </body>
+</html>
