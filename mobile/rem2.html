@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>REM布局样例</title>
+        <link rel="stylesheet" type="text/css" href="../base.css">
+        <meta name="viewport" content="initial-scale=1">
+
+        <style type="text/css">
+            html, body {
+                /*width: 100%;width=device-width, */
+            }
+            div {
+                text-align:center; 
+                background-color: #ccc; 
+                border:1px solid #000;
+                box-sizing: border-box;
+            }
+            .origin {
+                height:320px; 
+                width:320px; 
+                font-size:50px; 
+            }
+
+            .dpr {
+                height:5rem;
+                width: 5rem;
+                font-size: 0.78rem;
+            }
+
+            .normal {
+                width: 50%;
+                height: 320px;
+                font-size:50px; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="origin">123abc汉字</div><!-- 
+        <div class="dpr">123abc汉字</div>
+        <div class="normal">123abc汉字</div> -->
+    </body>
+    <script type="text/javascript">
+        var dpr = window.devicePixelRatio;
+        // document.documentElement.style.fontSize = window.screen.width * dpr / 10 + 'px';
+    </script>
+
+</html>

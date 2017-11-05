@@ -1,0 +1,239 @@
+body, html {
+    height: 100%;
+}
+
+header {
+    height: 1rem;
+}
+
+header nav {
+    height: 1rem;
+    background-color: #da3b4b;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+nav .btn {
+    height: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;    
+    background-size: auto 50%;
+    flex: 0 0 16%;
+}
+
+nav .btn:hover {
+    background-color:#c33e4c;
+}
+
+nav .btnPre {
+    background-image: url("./images/btnPre.png");
+}
+
+nav .btnMenu {
+    background-image: url("./images/btnMenu.png");
+}
+
+nav .search {
+    flex: 0 0 60%;
+    height:0.6rem;
+    background: #fff;
+    border-radius: 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .search .searchImg {
+    height: 0.5rem;
+}
+
+nav .search .searchInput {
+    flex: 1;
+    outline: none;
+    border: none;
+    height: 0.6rem;
+    border-radius: 0 0.1rem 0.1rem 0;
+    line-height: 0.6rem;
+    width: 100%;
+    font-size: 0.32rem;
+}
+
+section {
+    overflow: scroll;
+    height: calc(100% - 2rem);
+}
+
+.sliderImg {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.sliderImg ul {
+    position: relative;
+    width: calc( 100% * 4 )
+}
+
+.sliderImg ul li {
+    display: inline-block;
+    height: 3rem;
+    width: calc( 100% / 4);
+    background: #555;
+    text-align: center;
+    color: #ddd;
+}
+
+.sliderImg ul li span {
+    /*font-size: 0.26rem;*/
+}
+
+.tiledList {
+    width: 100%;
+    height: 3rem;
+    background: #ccc;
+    display: flex;
+    align-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: 0.5rem;
+    text-align: center;
+    line-height: 0.9rem;
+}
+
+.tiledList ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.tiledList ul li {
+    width: 1rem;
+    height: 0.9rem;
+    border-radius: 0.1rem;
+    background: #aaa;
+}
+
+.msgContainer {
+    height: 0.7rem;
+    border-top: 0.1px solid #333;
+    display: flex;
+    color: #0082df;
+    font-size: 0.3rem;
+}
+
+.msgContainer .msgHead {
+    border-right: 1px solid #333;
+    width: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.msgContainer .msgHead .msgImg {
+    height: 0.4rem;
+}
+
+.msgContainer .sliderMsg {
+    flex:1;
+    line-height: 0.7rem;
+    text-indent: 0.2rem;
+    word-break: break-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.shopList {
+    line-height: 0.7rem;
+}
+
+.shopList .shopHeader {
+    background: #eee;
+    height: 0.7rem;
+    font-size: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopList .shopHeader span {
+    padding: 0 0.2rem;
+}
+
+.shopList .shopHeader .showAll {
+    color: #0082df;
+}
+
+.shopList ul {
+    /*height: 4rem;*/
+    overflow: scroll;
+}
+
+.shopList ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    height: 2rem;
+}
+
+.shopList ul li .intro {
+    flex: 1;
+    font-size: 0.3rem;
+    padding-left: 0.5rem;
+    line-height: 0.6rem;
+}
+
+.shopList ul li .itemImg{
+    height: 1.5rem;
+    padding-left: 0.2rem;     
+}
+
+.shopList ul li .intro .title {
+    font-weight: bold;
+}
+
+.shopList ul li .introTip {
+    display: inline-block;
+    padding: 0 0.2rem;
+    width: 15%;
+}
+
+.intro1 .msgImg {
+    height: 0.3rem;
+}
+
+footer {
+    /*position: absolute;
+    bottom: 0;*/
+    background: #fafafa;
+    height: 1rem;
+    width: 100%;
+    font-size: 0.24rem;
+    color: #aaa;
+}
+
+footer ul {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;    
+    height: 100%;
+}
+
+footer ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 18%;
+    align-items: center;
+}
+
+footer ul li .footerImg {
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+footer ul li span {
+
+}
