@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>磁场</title>
+        <link rel="stylesheet" type="text/css" href="./base.css">
+        <style>
+            ul {
+                height:300px;
+                width: 300px;
+                margin: 80px auto;
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+                flex-wrap:wrap;
+                background: #989de0;
+                color: aliceblue;
+            }
+            li {
+                display: inline-block;
+                height: 20px;
+                line-height: 12px;
+                text-align: center;
+                width: 20px;
+                box-sizing: border-box;
+                transition: transform 0.5s;
+                font-size: 40px;
+                cursor: crosshair;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id='fieldUL'>
+        </ul>
+    </body>
+    <script type="text/javascript">
+        var strLi = [];
+        var liLength = 225;
+        var coordnateNum = 15;
+
+        for (var i = 0 ; i < liLength ; i++){
+            strLi.push("<li id=" +( i +1 ) + ">-</li>");
+        }
+        window.onload = function(){
+            document.getElementById('fieldUL').innerHTML = strLi.join('');
+            document.getElementById('fieldUL').addEventListener("mouseover",function(event ){
+                caluPoint(event.target.id);
+            }, false);
+        }
+
+        function caluPoint(pointId) {
+            pointNum = parseInt(pointId);
+            var coorInfo = transCoordnate(pointNum),
+                  x = coorInfo.x,
+                  y = coorInfo.y;
+
+            // 迭代所有节点，处理转化角度
+            for(var i = 0; i < liLength; i++ ){
+                var pointCoorInfo = transCoordnate(i+1),
+                      px = pointCoorInfo.x,
+                      py = pointCoorInfo.y,
+                      angle = caluAngle(x-px,y-py),
+                      point = document.getElementById(i+1);
+                point.innerText = "-";
+                point.style.transform = "rotate(" + angle + "deg)";
+            }
+            // document.getElementById(pointId).innerText = "•";
+        }
+
+        // 转化节点坐标数据
+        function transCoordnate(pointNum) {
+            pointNum--;
+            var x = pointNum%coordnateNum,
+                  y = Math.floor(pointNum/coordnateNum);
+
+            return {
+                x: x + 1,
+                y:  y + 1
+            }
+        }
+
+        function caluAngle(x,y) {
+
+            //计算弧度
+            var z = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+
+            var r = Math.acos(x/z);
+
+            var angle = 180/(Math.PI/r);
+
+            //第一象限修正、第二象限修正
+            if (y > 0 ) {
+                angle = angle - 90;
+            }
+
+            if(y < 0){
+                angle = 90 - angle;
+            }
+
+            if (y == 0) {
+                angle -= 90;
+            }
+
+            // if(angle > 90) {
+            //     angle = angle - 180;
+            // }
+
+            // 计算角度
+            return angle;
+        }
+
+
+    </script>
+</html>
