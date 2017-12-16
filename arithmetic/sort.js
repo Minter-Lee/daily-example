@@ -27,3 +27,70 @@ const insertSort = (arr) => {
         }
     }   
 }
+
+/**
+ * [binaryInsertSort 二分插入排序]
+ * @param {[Array]} arr 需要排序的数组
+ * @return {[Array]}  arr 排序后的结果
+ */
+const binaryInsertSort = (arr) => {
+    let len = arr.length;
+
+    // 1.从无序区开始迭代
+    for(let i = 1; i < len; i++) {
+        let start = 0,
+            end = i - 1,
+            temp = arr[i];
+        // 2.判定start与end是否重叠
+        while(start <= end) {
+            // 3. 计算中间值，注意此处仅取整
+            let middle = parseInt(( start + end ) / 2);
+            // 4.当前值在后半部分，调整start
+            if(temp > arr[middle]){
+                start = middle + 1;
+            }
+            // 5.当前值在前半部分，调整end
+            else {
+                end = middle - 1;
+            }
+        }
+
+        // 6.start与end重叠后，将有序区中start之后（包含start）的元素顺移一位
+        for(let j = i -1; j >= start; j--) {
+            arr[j + 1] = arr[j];
+        }
+
+        // 7.在start处插入当前元素，完成该元素的排序
+        arr[start] = temp;
+    }
+}
+
+
+/**
+ * [shellSort 希尔插入排序]
+ * @param {[Array]} arr 需要排序的数组
+ * @return {[Array]}  arr 排序后的结果
+ */
+const shellSort = (arr) => {
+    let len = arr.length,
+        gap = parseInt(len / 2);
+
+    for(let i = 0; i < gap; i++) {
+        let tempArr = [arr[i]];
+        let g = gap;
+        while (g <= len){
+            tempArr.push(arr[g]);
+            g += gap;
+        }
+        let sArr = insertSort(tempArr);
+        let j = sArr.length-1;
+        while(g > i) {
+            g = g-gap;
+            arr[g] = sArr[j];
+            j--;
+        }
+
+        return insertSort(arr);
+        
+    }
+}
