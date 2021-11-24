@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Web Components Demo</title>
+		<style>
+			.extral-top {
+				font-size: 12px;
+				width: 100%;
+				height: 30px;
+			}
+
+			.extral-bottom {
+				font-size: 12px;
+				width: 100%;
+				flex: 1;
+				color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<template id="feed-head">
+			<style>
+				.feed-head-container {
+					height: 72px;
+					width: 432px;
+					border: 1px solid #cccccc;
+					background-color: #eee;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					padding: 12px;
+					box-sizing: border-box;
+					border-radius: 6px;
+					flex-wrap: nowrap;
+				}
+
+				.container-left {
+					width: 48px;
+					height: 48px;
+					position: relative;
+					margin-right: 12px;
+				}
+
+				.avatar {
+					height: 48px;
+					width: 48px;
+					background-color: #ddd;
+					border-radius: 50%;
+					border: none;
+				}
+
+				.avatar-extral {
+					position: absolute;
+					bottom: 0px;
+					text-align: center;
+					width: 100%;
+					background-color: #a0a0a0;
+					font-size: 12px;
+					height: 16px;
+					line-height: 18px;
+					opacity: 0.7;
+					border-radius: 4px;
+				}
+
+				.container-middle {
+					flex: 1;
+					height: 100%;
+					overflow: hidden;
+				}
+
+				.feed-title {
+					font-size: 16px;
+					height: 24px;
+				}
+
+				.feed-desc {
+					font-size: 14px;
+					line-height: 24px;
+					height: 24px;
+					width: 100%;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+
+				.container-right {
+					height: 40px;
+					width: 60px;
+					text-align: right;
+					margin-left: 12px;
+					display: flex;
+					flex-direction: column;
+				}
+			</style>
+			<div class="feed-head-container">
+				<div class="container-left">
+					<img
+						class="avatar"
+						src="https://www.solosea.com/res/upload/fpdown/img/638c5a6143ec585c9bc6cbc612176a7d_thumb.jpg"
+					/>
+					<div class="avatar-extral">
+						<slot name="avatarExtral"></slot>
+					</div>
+				</div>
+				<div class="container-middle">
+					<div class="feed-title">
+						<slot name="feedTitle"></slot>
+					</div>
+					<div class="feed-desc">
+						<slot name="feedDesc"></slot>
+					</div>
+				</div>
+				<div class="container-right">
+					<slot name="rightExtral"></slot>
+				</div>
+			</div>
+		</template>
+		<feed-head>
+			<div slot="avatarExtral">车主</div>
+			<div slot="feedTitle">这是一个Feed的标题</div>
+			<div slot="feedDesc">这是具体的描述，例如这个图标是我从百度搜索而来的</div>
+			<div slot="rightExtral">
+				<div class="extral-top">趋势</div>
+				<div class="extral-bottom">>></div>
+			</div>
+		</feed-head>
+	</body>
+</html>
