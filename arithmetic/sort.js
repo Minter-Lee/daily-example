@@ -177,8 +177,6 @@ const quickSort = (a) => {
 		// 中位数大于当前数
 		if (a[pIndex] > a[i]) {
 			left.push(a[i]);
-			// 如果不用left right 单独记录
-			// 先把这元素删了，然后加到左边，然后pIndex+1
 			a.splice(i, 1);
 			a.unshift(a[i]);
 			pIndex++;
@@ -213,14 +211,14 @@ const quickSort2 = (a) => {
 			a.unshift(a[i]);
 			pIndex++;
 		} else if (a[pIndex] < a[i] && pIndex > i) {
-            // 无法删第一个
+			// 无法删第一个
 			a.splice(i, 1);
 			a.push(a[i]);
 			pIndex--;
 		}
 	}
 
-    // slice 返回了一个新对象，所以还是占了空间 用quicksort即可
+	// slice 返回了一个新对象，所以还是占了空间 用quicksort即可
 	let left = a.slice(0, pIndex),
 		right = a.slice(pIndex + 1, a.length - 1);
 
@@ -234,3 +232,68 @@ const quickSort2 = (a) => {
 
 	return left.concat([a[pIndex]]).concat(right);
 };
+
+var linkList = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+// 反转列表
+const reserveLinkList = (n) => {
+	let head = n,
+		node = n;
+	nextNode = null;
+
+	while (node && node.next != null) {
+		// 先将后面的节点存起来
+		nextNode = node.next;
+		// 将当前节点链接至nextNode的下一个节点
+		node.next = nextNode.next;
+		// 将nextNode加入head之前，完成位置交换
+		nextNode.next = head;
+		head = nextNode;
+	}
+	console.info('node === ' + JSON.stringify(head));
+};
+
+reserveLinkList(linkList);
+
+var linkList = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null
+			}
+		}
+	}
+};
+
+// 找到链表中的倒数K节点
+const findK = (head, k) => {
+	let p1 = head,
+		p2 = head,
+		index = 1;
+	while (p1.next != null) {
+		p1 = p1.next;
+		index++;
+		// k值表示 p1 -> p2的距离，比如k=3即表示p1走到第三个节点时p2开始为1
+		if (index > k) {
+			p2 = p2.next;
+		}
+	}
+	return p2.value;
+};
+
+findK(linkList, 4);
